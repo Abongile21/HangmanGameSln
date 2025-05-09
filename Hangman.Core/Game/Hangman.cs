@@ -6,6 +6,7 @@ namespace Hangman.Core.Game
     public class HangmanGame
     {
         private GallowsRenderer _renderer;
+        string[] words = {"compiler","index","inheritance","casting","parameter","framework","console","array","dictionary","github","method", "class" };
 
         public HangmanGame()
         {
@@ -15,7 +16,7 @@ namespace Hangman.Core.Game
         public void Run()
         {
             _renderer.Render(5, 5, 6);
-
+            int guess = 6;
             Console.SetCursorPosition(0, 13);
             Console.ForegroundColor = ConsoleColor.Blue;
             Console.Write("Your current guess: ");
@@ -23,6 +24,8 @@ namespace Hangman.Core.Game
             Console.SetCursorPosition(0, 15);
 
             Console.ForegroundColor = ConsoleColor.Green;
+
+
 
             Console.Write("What is your next guess: ");
             var nextGuess = Console.ReadLine();

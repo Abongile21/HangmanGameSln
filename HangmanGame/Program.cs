@@ -11,7 +11,7 @@ namespace HangmanGameConsole
 
             Console.ForegroundColor = ConsoleColor.Green;
             Console.SetCursorPosition(10, 2);
-            Console.Write("Welcome to Hangman!!");
+            Console.Write("Welcome to Hangman for Developers!!");
 
             var hangman = new HangmanGame();
             hangman.Run();
@@ -20,7 +20,7 @@ namespace HangmanGameConsole
 
 
             Console.SetCursorPosition(20, 25);
-            Console.WriteLine("Thank you for playing");
+            Console.WriteLine("Thank you for playing dev");
             Console.ReadLine();
         }
     }
