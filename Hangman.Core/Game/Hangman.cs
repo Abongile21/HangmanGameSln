@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using HangmanRenderer.Renderer;
 
 namespace Hangman.Core.Game
@@ -31,7 +32,7 @@ namespace Hangman.Core.Game
             while(guess>0 && new string(guessedWord)!=selectedWord)
             {
                 Console.Clear();
-                _renderer.Render(5, 5,guess );
+                _renderer.Render(5, 5, guess);
 
                 Console.SetCursorPosition(0, 13);
                 Console.ForegroundColor = ConsoleColor.Blue;
@@ -46,7 +47,7 @@ namespace Hangman.Core.Game
                 Console.Write("What is your next guess: ");
                 string nextGuess = Console.ReadLine();
                 
-                if (string.IsNullOrWhiteSpace(nextGuess) || nextGuess.Length != 1 || !char.IsLetter(input[0]))
+                if (string.IsNullOrWhiteSpace(nextGuess) || nextGuess.Length != 1 || !char.IsLetter(nextGuess[0]))
                 {
                     Console.SetCursorPosition(0, 17);
                     Console.ForegroundColor = ConsoleColor.Red;
@@ -56,7 +57,7 @@ namespace Hangman.Core.Game
                 }
 
                 
-                 char guess = char.ToLower(input[0]);
+                 char guessed = char.ToLower(nextGuess[0]);
 
                 if (guessedLetters.Contains(guessed))
                 {
@@ -67,15 +68,15 @@ namespace Hangman.Core.Game
                     continue;
                 };
 
-                guessedLetters.Add(guess);
+                guessedLetters.Add(guessed);
 
-                if (selectedWord.Contains(guess))
+                if (selectedWord.Contains(guessed))
                 {
                     for (int i = 0; i < selectedWord.Length; i++)
                     {
-                        if (selectedWord[i] == guess)
+                        if (selectedWord[i] == guessed)
                         {
-                            guessedWord[i] = guess;
+                            guessedWord[i] = guessed;
                         }
                     }
                 }
