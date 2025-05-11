@@ -30,23 +30,63 @@ namespace Hangman.Core.Game
         
             while(guess>0 && new string(guessedWord)!=selectedWord)
             {
-                _renderer.Render(5, 5, 6);
+                Console.Clear();
+                _renderer.Render(5, 5,guess );
+
                 Console.SetCursorPosition(0, 13);
                 Console.ForegroundColor = ConsoleColor.Blue;
                 Console.Write("Your current guess: ");
-                Console.WriteLine("--------------");
+                Console.WriteLine(new string(guessedWord));
+                
+                
+
+
                 Console.SetCursorPosition(0, 15);
-
                 Console.ForegroundColor = ConsoleColor.Green;
-
-
-
                 Console.Write("What is your next guess: ");
-        
-        
-                var nextGuess = Console.ReadLine();
-            }
-        }
+                string nextGuess = Console.ReadLine();
+                
+                if (string.IsNullOrWhiteSpace(nextGuess) || nextGuess.Length != 1 || !char.IsLetter(input[0]))
+                {
+                    Console.SetCursorPosition(0, 17);
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine("Invalid input. Press any key...");
+                    Console.ReadKey();
+                    continue;
+                }
 
+                
+                 char guess = char.ToLower(input[0]);
+
+                if (guessedLetters.Contains(guessed))
+                {
+                    Console.SetCursorPosition(0, 17);
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine("You already guessed that. Press any key...");
+                    Console.ReadKey();
+                    continue;
+                };
+
+                guessedLetters.Add(guess);
+
+                if (selectedWord.Contains(guess))
+                {
+                    for (int i = 0; i < selectedWord.Length; i++)
+                    {
+                        if (selectedWord[i] == guess)
+                        {
+                            guessedWord[i] = guess;
+                        }
+                    }
+                }
+                else
+                {
+                    remainingLives--;
+                }
+            }
+
+            
+
+        }
     }
 }
