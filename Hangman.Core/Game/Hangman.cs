@@ -6,7 +6,13 @@ namespace Hangman.Core.Game
     public class HangmanGame
     {
         private GallowsRenderer _renderer;
-        string[] words = {"compiler","index","inheritance","casting","parameter","framework","console","array","dictionary","github","method", "class" };
+        private readonly string[] words = {
+            "compiler", "index", "inheritance", "casting", "parameter",
+            "framework", "console", "array", "dictionary", "github",
+            "method", "class", "object", "override", "interface",
+            "constructor", "abstraction", "encapsulation", "namespace", "stack"
+        };
+
 
         public HangmanGame()
         {
