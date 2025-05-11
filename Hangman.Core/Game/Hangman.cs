@@ -21,8 +21,15 @@ namespace Hangman.Core.Game
 
         public void Run()
         {
-            _renderer.Render(5, 5, 6);
             int guess = 6;
+            Random rand = new Random();
+            string selectedWord = words[rand.Next(words.Length)];
+            char[] guessedWord = new string('-', selectedWord.Length).ToCharArray();
+            int remainingLives = 6;
+            HashSet<char> guessedLetters = new HashSet<char>();
+        
+          
+            _renderer.Render(5, 5, 6);
             Console.SetCursorPosition(0, 13);
             Console.ForegroundColor = ConsoleColor.Blue;
             Console.Write("Your current guess: ");
