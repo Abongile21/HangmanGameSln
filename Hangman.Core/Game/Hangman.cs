@@ -28,20 +28,24 @@ namespace Hangman.Core.Game
             int remainingLives = 6;
             HashSet<char> guessedLetters = new HashSet<char>();
         
-          
-            _renderer.Render(5, 5, 6);
-            Console.SetCursorPosition(0, 13);
-            Console.ForegroundColor = ConsoleColor.Blue;
-            Console.Write("Your current guess: ");
-            Console.WriteLine("--------------");
-            Console.SetCursorPosition(0, 15);
+            while(guess>0 && new string(guessedWord)!=selectedWord)
+            {
+                _renderer.Render(5, 5, 6);
+                Console.SetCursorPosition(0, 13);
+                Console.ForegroundColor = ConsoleColor.Blue;
+                Console.Write("Your current guess: ");
+                Console.WriteLine("--------------");
+                Console.SetCursorPosition(0, 15);
 
-            Console.ForegroundColor = ConsoleColor.Green;
+                Console.ForegroundColor = ConsoleColor.Green;
 
 
 
-            Console.Write("What is your next guess: ");
-            var nextGuess = Console.ReadLine();
+                Console.Write("What is your next guess: ");
+        
+        
+                var nextGuess = Console.ReadLine();
+            }
         }
 
     }
