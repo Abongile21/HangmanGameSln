@@ -84,8 +84,24 @@ namespace Hangman.Core.Game
                     remainingLives--;
                 }
             }
+            Console.Clear();
+            _renderer.Render(5, 5, remainingLives);
 
-            
+            Console.SetCursorPosition(0, 13);
+            Console.ForegroundColor = ConsoleColor.Cyan;
+
+            if (new string(guessedWord) == selectedWord)
+            {
+                Console.WriteLine("Congratulations! You survived!");
+                Console.WriteLine("The word was: " + selectedWord);
+            }
+            else
+            {
+                Console.WriteLine("You died. Better luck next time!");
+                Console.WriteLine("The word was: " + selectedWord);
+            }
+
+            Console.ResetColor();
 
         }
     }
