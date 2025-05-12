@@ -16,7 +16,7 @@ A simple Hangman game built in C# using the console. Players guess letters to re
 
 ## 🛠 Requirements
 
-- [.NET 9 or change to one install in your machine](https://dotnet.microsoft.com/) 
+- [.NET 9 or change to the one installed in your machine](https://dotnet.microsoft.com/) 
 - `HangmanRenderer` library or class (must be available in your project)
 
 ---
