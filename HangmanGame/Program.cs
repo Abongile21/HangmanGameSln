@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading;
 using Hangman.Core.Game;
 
 namespace HangmanGameConsole
@@ -12,6 +13,7 @@ namespace HangmanGameConsole
             Console.ForegroundColor = ConsoleColor.Green;
             Console.SetCursorPosition(10, 2);
             Console.Write("Welcome to Hangman for Developers!!");
+            Thread.Sleep(2000);
 
             var hangman = new HangmanGame();
             hangman.Run();
