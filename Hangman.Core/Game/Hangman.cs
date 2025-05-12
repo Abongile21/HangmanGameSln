@@ -22,17 +22,17 @@ namespace Hangman.Core.Game
 
         public void Run()
         {
-            int guess = 6;
+            int remainingGuesses = 6;
             Random rand = new Random();
             string selectedWord = words[rand.Next(words.Length)];
             char[] guessedWord = new string('-', selectedWord.Length).ToCharArray();
-            int remainingLives = 6;
+            
             HashSet<char> guessedLetters = new HashSet<char>();
         
-            while(guess>0 && new string(guessedWord)!=selectedWord)
+            while(remainingGuesses > 0 && new string(guessedWord)!=selectedWord)
             {
                 Console.Clear();
-                _renderer.Render(5, 5, guess);
+                _renderer.Render(5, 5, remainingGuesses);
 
                 Console.SetCursorPosition(0, 13);
                 Console.ForegroundColor = ConsoleColor.Blue;
@@ -82,11 +82,11 @@ namespace Hangman.Core.Game
                 }
                 else
                 {
-                    remainingLives--;
+                    remainingGuesses--;
                 }
             }
             Console.Clear();
-            _renderer.Render(5, 5, remainingLives);
+            _renderer.Render(5, 5, remainingGuesses);
 
             Console.SetCursorPosition(0, 13);
             Console.ForegroundColor = ConsoleColor.Cyan;
