@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using HangmanRenderer.Renderer;
 
 namespace Hangman.Core.Game
@@ -25,7 +26,7 @@ namespace Hangman.Core.Game
             int remainingGuesses = 6;
             Random rand = new Random();
             string selectedWord = words[rand.Next(words.Length)];
-            char[] guessedWord = new string('-', selectedWord.Length).ToCharArray();
+            char[] guessedWord = new string('_', selectedWord.Length).ToCharArray();
             
             HashSet<char> guessedLetters = new HashSet<char>();
         
@@ -37,7 +38,7 @@ namespace Hangman.Core.Game
                 Console.SetCursorPosition(0, 13);
                 Console.ForegroundColor = ConsoleColor.Blue;
                 Console.Write("Your current guess: ");
-                Console.WriteLine(new string(guessedWord));
+                Console.WriteLine(string.Join(" ",guessedWord));
                 
                 
 
