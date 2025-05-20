@@ -80,6 +80,7 @@ namespace Hangman.Core.Game
                             guessedWord[i] = guessed;
                         }
                     }
+
                 }
                 else
                 {
@@ -90,15 +91,17 @@ namespace Hangman.Core.Game
             _renderer.Render(5, 5, remainingGuesses);
 
             Console.SetCursorPosition(0, 13);
-            Console.ForegroundColor = ConsoleColor.Cyan;
+            
 
             if (new string(guessedWord) == selectedWord)
             {
+                Console.ForegroundColor = ConsoleColor.Green;
                 Console.WriteLine("Congratulations! You survived!");
                 Console.WriteLine("The word was: " + selectedWord);
             }
             else
             {
+                Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("You died. Better luck next time!");
                 Console.WriteLine("The word was: " + selectedWord);
             }
